@@ -35,7 +35,7 @@ function App() {
             }}
             className="text-lg font-extrabold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent"
           >
-            YourName.dev
+            chiranrandika.me
           </a>
 
           {/* Desktop nav links */}
