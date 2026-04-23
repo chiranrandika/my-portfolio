@@ -12,6 +12,17 @@ const Hero = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      // Offset for fixed navbar
+      const offsetTop = element.getBoundingClientRect().top + window.scrollY - 64;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+      window.history.pushState({}, '', `/${targetId}`);
+    }
+  };
+
   return (
     <>
       <section
@@ -78,14 +89,16 @@ const Hero = () => {
         {/* CTA Buttons */}
         <div className="flex flex-wrap justify-center gap-4">
           <a
-            href="#projects"
+            href="/projects"
+            onClick={(e) => handleNavClick(e, 'projects')}
             id="cta-view-work"
             className="px-7 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg shadow-indigo-600/30"
           >
             View My Work
           </a>
           <a
-            href="#about"
+            href="/about"
+            onClick={(e) => handleNavClick(e, 'about')}
             className="px-7 py-3 border border-gray-700 hover:border-indigo-500 text-gray-300 hover:text-white rounded-xl font-semibold transition-all duration-300 hover:scale-105"
           >
             About Me

@@ -6,17 +6,36 @@ import Youtube from './components/Youtube';
 import Footer from './components/Footer';
 
 const navLinks = [
-  { label: 'Home',     href: '#hero'     },
-  { label: 'About',    href: '#about'    },
-  { label: 'Projects', href: '#projects' },
-  { label: 'YouTube',  href: '#youtube'  },
-  { label: 'Contact',  href: '#contact'  },
+  { label: 'Home',     href: '/',        targetId: 'hero'     },
+  { label: 'About',    href: '/about',   targetId: 'about'    },
+  { label: 'Projects', href: '/projects',targetId: 'projects' },
+  { label: 'YouTube',  href: '/youtube', targetId: 'youtube'  },
+  { label: 'Contact',  href: '/contact', targetId: 'contact'  },
 ];
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);
+
+  // Custom click handler to smooth scroll and update URL without #
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    
+    if (targetId === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.history.pushState({}, '', '/');
+    } else {
+      const element = document.getElementById(targetId);
+      if (element) {
+        // Scroll with 64px offset for the fixed navbar
+        const offsetTop = element.getBoundingClientRect().top + window.scrollY - 64;
+        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        window.history.pushState({}, '', `/${targetId}`);
+      }
+    }
+    closeMenu();
+  };
 
   return (
     <div className="min-h-screen bg-gray-950 text-gray-100">
@@ -28,11 +47,7 @@ function App() {
           {/* Logo — scrolls to true page top */}
           <a
             href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-              closeMenu();
-            }}
+            onClick={(e) => handleNavClick(e, 'hero')}
             className="text-lg font-extrabold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent"
           >
             chiranrandika.me
@@ -44,6 +59,7 @@ function App() {
               <a
                 key={link.label}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.targetId)}
                 className="hover:text-indigo-400 transition-colors duration-200"
               >
                 {link.label}
@@ -87,7 +103,7 @@ function App() {
               <a
                 key={link.label}
                 href={link.href}
-                onClick={closeMenu}
+                onClick={(e) => handleNavClick(e, link.targetId)}
                 className={`text-center py-3.5 text-sm font-medium text-gray-400 hover:text-indigo-400 hover:bg-indigo-500/5 transition-all duration-200 ${
                   index !== navLinks.length - 1 ? 'border-b border-gray-800/60' : ''
                 }`}
