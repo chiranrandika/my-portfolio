@@ -14,17 +14,17 @@ const skills = [
 const About = () => {
   return (
     <section id="about" className="py-16 sm:py-24 px-6">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl xl:max-w-7xl mx-auto">
 
         {/* Section header */}
         <div className="text-center mb-16">
-          <p className="text-indigo-400 font-medium tracking-widest uppercase text-sm mb-2">
+          <p className="text-cyan-600 dark:text-cyan-400 font-medium tracking-widest uppercase text-sm mb-2">
             Get to know me
           </p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white">
             About Me
           </h2>
-          <div className="mt-4 w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mx-auto" />
+          <div className="mt-4 w-16 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mx-auto" />
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -32,7 +32,7 @@ const About = () => {
           {/* Avatar + quick stats */}
           <div className="flex flex-col items-center gap-6">
             <div className="relative">
-              <div className="w-48 h-48 rounded-3xl p-[3px] bg-gradient-to-br from-indigo-500 via-purple-500 to-cyan-500 shadow-xl shadow-indigo-900/40">
+              <div className="w-48 h-48 rounded-3xl p-[3px] bg-gradient-to-br from-cyan-400 via-blue-500 to-cyan-600 shadow-xl shadow-cyan-900/20 dark:shadow-cyan-900/40">
                 <img
                   src={chiranImg}
                   alt="Chiran Randika"
@@ -40,7 +40,7 @@ const About = () => {
                 />
               </div>
               {/* Online badge */}
-              <span className="absolute -bottom-2 -right-2 px-3 py-1 bg-green-500/20 border border-green-500/40 text-green-300 text-xs rounded-full font-medium">
+              <span className="absolute -bottom-2 -right-2 px-3 py-1 bg-green-100 dark:bg-green-500/20 border border-green-300 dark:border-green-500/40 text-green-700 dark:text-green-300 text-xs rounded-full font-medium shadow-sm">
                 🟢 Open to work
               </span>
             </div>
@@ -55,10 +55,10 @@ const About = () => {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="bg-gray-900 border border-gray-800 rounded-xl p-3 text-center"
+                  className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-3 text-center shadow-sm"
                 >
-                  <p className="text-2xl font-extrabold text-indigo-400">{stat.value}</p>
-                  <p className="text-gray-500 text-xs mt-0.5">{stat.label}</p>
+                  <p className="text-2xl font-extrabold text-cyan-600 dark:text-cyan-400">{stat.value}</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -66,18 +66,18 @@ const About = () => {
 
           {/* Bio + skills */}
           <div className="space-y-6">
-            <div className="space-y-4 text-gray-400 text-base leading-relaxed text-justify">
+            <div className="space-y-4 text-gray-600 dark:text-gray-400 text-base leading-relaxed text-justify">
               <p>
-                I&apos;m <span className="text-white font-semibold">Chiran Randika</span>, a
+                I&apos;m <span className="text-gray-900 dark:text-white font-semibold">Chiran Randika</span>, a
                 passionate tech enthusiast pursuing two academic programs simultaneously.
                 I am currently reading for a{' '}
-                <span className="text-white font-medium">Diploma in Software Engineering</span>{' '}
+                <span className="text-gray-900 dark:text-white font-medium">Diploma in Software Engineering</span>{' '}
                 at{' '}
-                <span className="text-indigo-400 font-medium">Sabaragamuwa University of Sri Lanka (SUSL)</span>,
+                <span className="text-cyan-600 dark:text-cyan-400 font-medium">Sabaragamuwa University of Sri Lanka (SUSL)</span>,
                 while concurrently pursuing a{' '}
-                <span className="text-white font-medium">Degree in Cyber Security</span>{' '}
+                <span className="text-gray-900 dark:text-white font-medium">Degree in Cyber Security</span>{' '}
                 at{' '}
-                <span className="text-purple-400 font-medium">ICBT Campus</span>.
+                <span className="text-blue-600 dark:text-blue-400 font-medium">ICBT Campus</span>.
                 This dual academic path gives me a unique perspective that bridges
                 creative software development with a security-first mindset.
               </p>
@@ -91,14 +91,14 @@ const About = () => {
 
             {/* Skills */}
             <div>
-              <p className="text-gray-500 text-sm uppercase tracking-widest mb-3 font-medium">
+              <p className="text-gray-500 dark:text-gray-500 text-sm uppercase tracking-widest mb-3 font-medium">
                 Skills &amp; Tools
               </p>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
                   <span
                     key={skill.label}
-                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-sm border rounded-full font-medium transition-transform duration-200 hover:scale-105 ${skill.color}`}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-sm border rounded-full font-medium transition-transform duration-200 hover:scale-105 ${skill.color} bg-opacity-30 dark:bg-opacity-10 shadow-sm`}
                   >
                     <span>{skill.icon}</span>
                     {skill.label}

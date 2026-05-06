@@ -50,19 +50,19 @@ const Footer = () => {
   };
 
   return (
-    <footer id="contact" className="bg-gray-950 border-t border-gray-800/60">
+    <footer id="contact" className="bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800/60 transition-colors duration-300">
 
       {/* Contact section */}
       <div className="max-w-5xl mx-auto px-6 pt-20 pb-12">
         <div className="text-center mb-12">
-          <p className="text-indigo-400 font-medium tracking-widest uppercase text-sm mb-2">
+          <p className="text-cyan-600 dark:text-cyan-400 font-medium tracking-widest uppercase text-sm mb-2">
             Get in touch
           </p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white">
             Contact Me
           </h2>
-          <div className="mt-4 w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mx-auto" />
-          <p className="mt-5 text-gray-400 text-sm max-w-lg mx-auto leading-relaxed">
+          <div className="mt-4 w-16 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mx-auto" />
+          <p className="mt-5 text-gray-600 dark:text-gray-400 text-sm max-w-lg mx-auto leading-relaxed">
             Whether you're interested in a sponsorship, collaboration, project opportunity,
             or simply want to connect — feel free to send a message and I'll get back to you as soon as possible.
           </p>
@@ -73,14 +73,14 @@ const Footer = () => {
           {submitted ? (
             <div className="flex flex-col items-center justify-center gap-3 py-12 text-center animate-pulse">
               <span className="text-5xl">✅</span>
-              <p className="text-white font-semibold text-lg">Message sent!</p>
-              <p className="text-gray-500 text-sm">Thanks for reaching out. I&apos;ll get back to you soon.</p>
+              <p className="text-gray-900 dark:text-white font-semibold text-lg">Message sent!</p>
+              <p className="text-gray-500 dark:text-gray-400 text-sm">Thanks for reaching out. I&apos;ll get back to you soon.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               {/* Name */}
               <div className="flex flex-col gap-1.5">
-                <label htmlFor="name" className="text-gray-400 text-sm font-medium">
+                <label htmlFor="name" className="text-gray-600 dark:text-gray-400 text-sm font-medium">
                   Name
                 </label>
                 <input
@@ -91,13 +91,13 @@ const Footer = () => {
                   placeholder="Your name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-xl text-gray-100 text-sm placeholder-gray-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/50 transition-colors duration-200"
+                  className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded-xl text-gray-900 dark:text-gray-100 text-sm placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50 transition-colors duration-200"
                 />
               </div>
 
               {/* Email */}
               <div className="flex flex-col gap-1.5">
-                <label htmlFor="email" className="text-gray-400 text-sm font-medium">
+                <label htmlFor="email" className="text-gray-600 dark:text-gray-400 text-sm font-medium">
                   Email
                 </label>
                 <input
@@ -108,13 +108,13 @@ const Footer = () => {
                   placeholder="your@email.com"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-xl text-gray-100 text-sm placeholder-gray-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/50 transition-colors duration-200"
+                  className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded-xl text-gray-900 dark:text-gray-100 text-sm placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50 transition-colors duration-200"
                 />
               </div>
 
               {/* Message */}
               <div className="flex flex-col gap-1.5">
-                <label htmlFor="message" className="text-gray-400 text-sm font-medium">
+                <label htmlFor="message" className="text-gray-600 dark:text-gray-400 text-sm font-medium">
                   Message
                 </label>
                 <textarea
@@ -125,14 +125,14 @@ const Footer = () => {
                   placeholder="What's on your mind?"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-xl text-gray-100 text-sm placeholder-gray-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/50 transition-colors duration-200 resize-none"
+                  className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded-xl text-gray-900 dark:text-gray-100 text-sm placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50 transition-colors duration-200 resize-none"
                 />
               </div>
 
               {/* Submit */}
               <button
                 type="submit"
-                className="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-[1.02] shadow-lg shadow-indigo-600/25 mt-1"
+                className="w-full py-3 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-[1.02] shadow-lg shadow-cyan-500/25 mt-1"
               >
                 Send Message →
               </button>
@@ -142,17 +142,17 @@ const Footer = () => {
       </div>
 
       {/* Divider */}
-      <div className="border-t border-gray-800/60" />
+      <div className="border-t border-gray-200 dark:border-gray-800/60" />
 
       {/* Bottom bar */}
       <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-6">
 
         {/* Brand */}
         <div className="flex flex-col items-center sm:items-start gap-1">
-          <span className="text-base font-extrabold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          <span className="text-base font-extrabold text-gray-900 dark:text-white">
             Chiran Randika
           </span>
-          <span className="text-gray-600 text-xs">
+          <span className="text-gray-500 dark:text-gray-500 text-xs text-center sm:text-left">
             Software Engineering &amp; Cyber Security Student
           </span>
         </div>
@@ -166,7 +166,7 @@ const Footer = () => {
               target={s.href.startsWith('mailto') ? '_self' : '_blank'}
               rel="noopener noreferrer"
               aria-label={s.label}
-              className={`w-10 h-10 flex items-center justify-center bg-gray-800 text-gray-400 rounded-full transition-all duration-200 hover:scale-110 ${s.color}`}
+              className={`w-10 h-10 flex items-center justify-center bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full transition-all duration-200 hover:scale-110 ${s.color}`}
             >
               {s.icon}
             </a>
@@ -174,7 +174,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <p className="text-gray-600 text-xs text-center sm:text-right">
+        <p className="text-gray-500 dark:text-gray-600 text-xs text-center sm:text-right">
           © {new Date().getFullYear()} Chiran Randika.
         </p>
       </div>

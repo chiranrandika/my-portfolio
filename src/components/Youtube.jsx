@@ -21,10 +21,10 @@ const channels = [
     handle: '@techrootsHTSL',
     href: 'https://www.youtube.com/@techrootsHTSL',
     logo: techLogo,
-    accent: 'from-indigo-600 to-purple-500',
-    border: 'hover:border-indigo-500/50',
-    glow: 'hover:shadow-indigo-900/30',
-    badgeColor: 'bg-indigo-500/10 border-indigo-500/20 text-indigo-300',
+    accent: 'from-cyan-400 to-blue-500',
+    border: 'hover:border-cyan-500/50',
+    glow: 'hover:shadow-cyan-900/20 dark:hover:shadow-cyan-900/40',
+    badgeColor: 'bg-cyan-50 dark:bg-cyan-500/10 border-cyan-200 dark:border-cyan-500/20 text-cyan-700 dark:text-cyan-300',
     description:
       'Sinhala-medium channel focused on full-stack development tutorials, coding projects, UI/UX design walkthroughs, and software engineering concepts — built for aspiring Sri Lankan developers.',
     topics: ['Coding Tutorials', 'Full-Stack Dev', 'UI/UX Design', 'Project Builds'],
@@ -67,14 +67,14 @@ const Youtube = () => {
 
         {/* Section header */}
         <div className="text-center mb-16">
-          <p className="text-red-400 font-medium tracking-widest uppercase text-sm mb-2">
+          <p className="text-cyan-600 dark:text-cyan-400 font-medium tracking-widest uppercase text-sm mb-2">
             On YouTube
           </p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white">
             My Channels
           </h2>
-          <div className="mt-4 w-16 h-1 bg-gradient-to-r from-red-500 to-rose-400 rounded-full mx-auto" />
-          <p className="mt-6 text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">
+          <div className="mt-4 w-16 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mx-auto" />
+          <p className="mt-6 text-gray-600 dark:text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">
             I run two YouTube channels focused on educational tech content — from beginner
             coding tutorials to advanced cyber security series, all in Sinhala.
           </p>
@@ -85,7 +85,7 @@ const Youtube = () => {
           {channels.map((ch) => (
             <div
               key={ch.name}
-              className={`group relative bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${ch.glow} ${ch.border}`}
+              className={`group relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl shadow-sm ${ch.glow} ${ch.border}`}
             >
               <div className={`h-1 bg-gradient-to-r ${ch.accent}`} />
 
@@ -99,8 +99,8 @@ const Youtube = () => {
                     className="w-16 h-16 rounded-2xl object-cover flex-shrink-0 shadow-lg"
                   />
                   <div>
-                    <h3 className="text-white font-bold text-xl leading-tight">{ch.name}</h3>
-                    <p className="text-gray-500 text-sm">{ch.handle}</p>
+                    <h3 className="text-gray-900 dark:text-white font-bold text-xl leading-tight">{ch.name}</h3>
+                    <p className="text-gray-500">{ch.handle}</p>
                   </div>
                   {/* YouTube icon */}
                   <div className="ml-auto">
@@ -121,12 +121,12 @@ const Youtube = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-400 text-sm leading-relaxed text-justify">{ch.description}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed text-justify">{ch.description}</p>
 
                 {/* Topic tags */}
                 <div className="flex flex-wrap gap-2">
                   {ch.topics.map((topic) => (
-                    <span key={topic} className="px-2.5 py-0.5 text-xs bg-gray-800 border border-gray-700 text-gray-300 rounded-full">
+                    <span key={topic} className="px-2.5 py-0.5 text-xs bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-full">
                       {topic}
                     </span>
                   ))}
@@ -151,7 +151,7 @@ const Youtube = () => {
 
         {/* ── Featured Videos ── */}
         <div>
-          <h3 className="text-white font-bold text-2xl mb-6 text-center">
+          <h3 className="text-gray-900 dark:text-white font-bold text-2xl mb-6 text-center">
             🎬 Featured Videos
           </h3>
 
@@ -162,10 +162,10 @@ const Youtube = () => {
                 href={`https://www.youtube.com/watch?v=${video.videoId}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-gray-600 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/40"
+                className="group flex flex-col bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden hover:border-cyan-500/50 dark:hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl shadow-sm dark:hover:shadow-black/40"
               >
                 {/* Thumbnail */}
-                <div className="relative overflow-hidden aspect-video bg-gray-800">
+                <div className="relative overflow-hidden aspect-video bg-gray-200 dark:bg-gray-800">
                   <img
                     src={`https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`}
                     alt={video.title}
@@ -186,10 +186,10 @@ const Youtube = () => {
                   <span className={`text-xs font-semibold ${video.channelColor}`}>
                     {video.channel}
                   </span>
-                  <h4 className="text-white text-sm font-semibold leading-snug group-hover:text-indigo-300 transition-colors line-clamp-2">
+                  <h4 className="text-gray-900 dark:text-white text-sm font-semibold leading-snug group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors line-clamp-2">
                     {video.title}
                   </h4>
-                  <p className="text-gray-500 text-xs leading-relaxed line-clamp-2">
+                  <p className="text-gray-600 dark:text-gray-500 text-xs leading-relaxed line-clamp-2">
                     {video.description}
                   </p>
                 </div>
