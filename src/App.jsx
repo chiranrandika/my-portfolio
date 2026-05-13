@@ -277,13 +277,22 @@ function App() {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.targetId)}
-                className={`text-center py-3.5 text-sm font-medium text-gray-600 hover:text-cyan-600 hover:bg-gray-50 dark:text-gray-400 dark:hover:text-cyan-400 dark:hover:bg-cyan-500/5 transition-all duration-200 ${
-                  index !== navLinks.length - 1 ? 'border-b border-gray-200 dark:border-gray-800/60' : ''
-                }`}
+                className={`text-center py-3.5 text-sm font-medium text-gray-600 hover:text-cyan-600 hover:bg-gray-50 dark:text-gray-400 dark:hover:text-cyan-400 dark:hover:bg-cyan-500/5 transition-all duration-200 border-b border-gray-200 dark:border-gray-800/60`}
               >
                 {link.label}
               </a>
             ))}
+            {/* Log In — mobile only */}
+            <button
+              onClick={() => { goToLogin(); closeMenu(); }}
+              className="py-3.5 text-sm font-semibold text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-500/5 transition-all duration-200 flex items-center justify-center gap-2"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+              </svg>
+              Log In / Sign Up
+            </button>
           </div>
         </div>
       </nav>
