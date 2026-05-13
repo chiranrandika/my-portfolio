@@ -4,6 +4,9 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Youtube from './components/Youtube';
 import Footer from './components/Footer';
+import Hometown from './components/Hometown';
+import ChatBot from './components/ChatBot';
+import LoginPage from './components/LoginPage';
 
 const navLinks = [
   { label: 'Home',     href: '/',        targetId: 'hero'     },
@@ -13,7 +16,7 @@ const navLinks = [
   { label: 'Contact',  href: '/contact', targetId: 'contact'  },
 ];
 
-// Searchable items — sections + keywords
+// Searchable items â€” sections + keywords
 const searchItems = [
   { label: 'Home',             targetId: 'hero',     keywords: ['home', 'hero', 'top', 'start'] },
   { label: 'About Me',         targetId: 'about',    keywords: ['about', 'bio', 'me', 'who', 'chiran', 'ratnapura', 'susl', 'icbt', 'skills'] },
@@ -27,10 +30,13 @@ function App() {
   const [theme,      setTheme]      = useState('light');
   const [searchOpen, setSearchOpen] = useState(false);
   const [query,      setQuery]      = useState('');
+  const [showLogin,  setShowLogin]  = useState(false);
   const searchInputRef     = useRef(null);
   const searchContainerRef = useRef(null);
 
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu   = () => setMenuOpen(false);
+  const goToLogin   = () => { setShowLogin(true);  window.history.pushState({}, '', '/login');  window.scrollTo(0, 0); };
+  const goBack      = () => { setShowLogin(false); window.history.pushState({}, '', '/');        window.scrollTo(0, 0); };
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -109,7 +115,13 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
 
-      {/* ── Sticky Navbar ── */}
+      {/* Show login page when requested */}
+      {showLogin ? (
+        <LoginPage onBack={goBack} />
+      ) : (
+        <>
+
+      {/* â”€â”€ Sticky Navbar â”€â”€ */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800/60 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
 
@@ -139,7 +151,7 @@ function App() {
           {/* Right side controls */}
           <div className="flex items-center gap-2 sm:gap-3">
 
-            {/* ── Search ── */}
+            {/* â”€â”€ Search â”€â”€ */}
             <div ref={searchContainerRef} className="relative flex items-center">
 
               {/* Expanding input */}
@@ -212,7 +224,17 @@ function App() {
               )}
             </div>
 
-            {/* Theme Toggle */}
+            {/* Login Button */}
+            <button
+              onClick={goToLogin}
+              className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700 hover:scale-105 transition-all duration-200 shadow-md shadow-cyan-500/20 focus:outline-none"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+              </svg>
+              Log In
+            </button>
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none flex-shrink-0"
@@ -229,7 +251,7 @@ function App() {
               )}
             </button>
 
-            {/* Hamburger — mobile only */}
+            {/* Hamburger â€” mobile only */}
             <button
               id="hamburger-btn"
               className="md:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 focus:outline-none flex-shrink-0"
@@ -275,8 +297,14 @@ function App() {
       </main>
 
       <Footer />
+
+      {/* Floating Chatbot */}
+      <ChatBot />
+      </>
+      )}
     </div>
   );
 }
 
 export default App;
+

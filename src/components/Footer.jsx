@@ -141,8 +141,41 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* Hometown map — sits between contact form and footer bottom bar */}
+      <div className="border-t border-gray-200 dark:border-gray-800/60 py-14 px-6 bg-gray-100 dark:bg-gray-900/40 transition-colors duration-300">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+
+          {/* Label */}
+          <div className="flex-shrink-0 md:w-52 flex flex-col items-center md:items-start gap-3 text-center md:text-left">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 text-sm font-medium">
+              <span>📍</span> Hometown
+            </div>
+            <h3 className="text-2xl font-extrabold text-gray-900 dark:text-white">Ratnapura</h3>
+            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+              City of Gems — Sabaragamuwa Province, Sri Lanka 🇱🇰
+            </p>
+          </div>
+
+          {/* Map */}
+          <div className="w-full flex-1 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-lg shadow-black/5 dark:shadow-black/30">
+            <iframe
+              title="Ratnapura, Sri Lanka"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63371.37753844963!2d80.35291!3d6.68233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3887f46f7af17%3A0x36af5e0b7e534e4d!2sRatnapura!5e0!3m2!1sen!2slk!4v1715000000000!5m2!1sen!2slk"
+              width="100%"
+              height="300"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-56 sm:h-72"
+            />
+          </div>
+        </div>
+      </div>
+
       {/* Divider */}
       <div className="border-t border-gray-200 dark:border-gray-800/60" />
+
 
       {/* Bottom bar */}
       <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-6">
